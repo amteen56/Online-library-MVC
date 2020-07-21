@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5bf2ed5b-a4d5-46b0-bad6-147c102bd391" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55790/OneLibrary.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OneLibrary.xsd" MetadataType="Schema" ID="84a856a1-87a5-4ab1-8ec0-390c3e149e20" SourceId="1" SourceUrl="http://localhost:55790/OneLibrary.svc?xsd=xsd2" />
+    <MetadataFile FileName="OneLibrary.disco" MetadataType="Disco" ID="a5769c01-85d6-40c3-b178-554d3bf26ab6" SourceId="1" SourceUrl="http://localhost:55790/OneLibrary.svc?disco" />
+    <MetadataFile FileName="OneLibrary1.xsd" MetadataType="Schema" ID="9845b329-471e-4fbe-9bda-45e579af5687" SourceId="1" SourceUrl="http://localhost:55790/OneLibrary.svc?xsd=xsd1" />
+    <MetadataFile FileName="OneLibrary2.xsd" MetadataType="Schema" ID="dd62107c-7a6b-453c-80b7-b1f50a78f4ec" SourceId="1" SourceUrl="http://localhost:55790/OneLibrary.svc?xsd=xsd0" />
+    <MetadataFile FileName="OneLibrary.wsdl" MetadataType="Wsdl" ID="2a3e58b2-43f1-47ca-b04f-236b12a178c1" SourceId="1" SourceUrl="http://localhost:55790/OneLibrary.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

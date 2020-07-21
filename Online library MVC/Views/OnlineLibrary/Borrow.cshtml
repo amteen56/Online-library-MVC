@@ -1,0 +1,126 @@
+﻿@model Online_library_MVC.ServiceReference1.OnlineLibData
+
+@{
+    ViewBag.Title = "Borrow";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Borrow Item</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+<div class="form-horizontal">
+    <hr />
+    <div class="container">
+        @if (TempData["showbr"].ToString() == "false")
+        {
+            if (TempData["borrowed"].ToString() == "true")
+            {
+                TempData["showbr"] = true;
+                <div class="alert alert-success">
+                    <strong>Success!</strong> Item Borrow Successfully.
+                </div>
+            }
+            if (TempData["borrowed"].ToString() == "false")
+            {
+                TempData["showbr"] = true;
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> Invalid error occured while performing your Request Check for Remaing no of Issue
+                </div>
+            }
+        }
+    </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.itemid, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.itemid, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.itemid, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.itemtype, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.itemtype, new { htmlAttributes = new { @class = "form-control disabledClass", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.itemtype, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.itemtitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.itemtitle, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.itemtitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cost, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cost, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.cost, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.noofissue, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.noofissue, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.noofissue, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.uname, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.uname, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.uname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.returndate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input autocomplete="off" type="text" class="form-control pull-left" name="dateobj" id="datepicker">
+            </div>
+        </div>
+    </div>
+    
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Borrow" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "BorrowItem")
+</div>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $("#datepicker").datepicker();
+        $("#anim").on("change", function () {
+            $("#datepicker").datepicker("option", "showAnim", $(this).val());
+        });
+    });
+    $("#datepicker").datepicker({
+        dateFormat: "dd-mm-yy"
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

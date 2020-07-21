@@ -1,0 +1,56 @@
+﻿@model IEnumerable< Online_library_MVC.ServiceReference1.OnlineLibData>
+@{
+    ViewBag.Title = "BorrowItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Borrow Item</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateItem")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.itemid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.itemtype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.itemtitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noofissue)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.itemid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.itemtype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.itemtitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.noofissue)
+            </td>
+            <td>
+                @Html.ActionLink("Borrow", "Borrow", new { id = item.itemid}) 
+            </td>
+        </tr>
+    }
+
+</table>

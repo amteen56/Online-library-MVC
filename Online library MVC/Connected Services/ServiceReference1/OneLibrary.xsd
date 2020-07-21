@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OnlineLibraryClass" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OnlineLibraryClass" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="OnlineLibData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cost" type="xs:double" />
+      <xs:element minOccurs="0" name="issuedate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="itemid" type="xs:int" />
+      <xs:element minOccurs="0" name="itemtitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="itemtype" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="noofissue" type="xs:int" />
+      <xs:element minOccurs="0" name="returndate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="uname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OnlineLibData" nillable="true" type="tns:OnlineLibData" />
+  <xs:complexType name="ArrayOfOnlineLibData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OnlineLibData" nillable="true" type="tns:OnlineLibData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOnlineLibData" nillable="true" type="tns:ArrayOfOnlineLibData" />
+</xs:schema>

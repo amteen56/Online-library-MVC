@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Online_library_MVC.ServiceReference1.OnlineLibData>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List Of Items</h2>
+
+<div class="container">
+    @if (TempData["showdt"].ToString() == "false")
+    {
+        if (TempData["deleted"].ToString() == "true")
+        {
+            TempData["showdt"] = true;
+            <div class="alert alert-success">
+                <strong>Success!</strong> Item Deleted Successfully.
+            </div>
+        }
+        if (TempData["deleted"].ToString() == "false")
+        {
+            TempData["showdt"] = true;
+            <div class="alert alert-danger">
+                <strong>Error!</strong> Invalid error occured while performing your Request Try Again!
+            </div>
+        }
+    }
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "CreateItem")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Item Id
+        </th>
+        <th>
+            Item Type
+        </th>
+        <th>
+            Item Title
+        </th>
+        <th>
+            Cost
+        </th>
+        <th>
+            No Of Issue
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.itemid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itemtype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itemtitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noofissue)
+        </td>
+     
+        <td>
+            @Html.ActionLink("Edit", "EditItem", new { id = item.itemid }) |
+            @Html.ActionLink("Delete", "DeletItem", new { id = item.itemid },
+            new { onclick = "return confirm('Are sure wants to delete?');" })
+
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,71 @@
+﻿@model Online_library_MVC.Models.OnlineLibraryDataModel
+
+@{
+    /**/
+
+    ViewBag.Title = "ReturnItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Return</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Return Item To Library</h4>
+
+        <div class="container">
+            @if (TempData["showenr"].ToString() == "false")
+            {
+                if (TempData["return"].ToString() == "true")
+                {
+                    TempData["showenr"] = true;
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> Item Returned Successfully Total Price: @TempData["price"]
+                    </div>
+                }
+                if (TempData["return"].ToString() == "false")
+                {
+                    TempData["showenr"] = true;
+                    <div class="alert alert-danger">
+                        <strong>Error!</strong> Invalid error occured while performing your Request Try Again!
+                    </div>
+                }
+            }
+        </div>
+
+        <hr />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.itemid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.itemid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.itemid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.uname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.uname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.uname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Rerurn" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
